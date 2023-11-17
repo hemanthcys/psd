@@ -17,21 +17,21 @@ jobs:
           name : testing
           command: pytest test_sparse_recommender.py
           
-      # - run:
-      #     name: Build Docker Image
-      #     command: |
-      #       docker build -t $DOCKERHUB_USERNAME/myapp:${CIRCLE_SHA1} .
+      - run:
+          name: Build Docker Image
+          command: |
+            docker build -t $DOCKERHUB_USERNAME/myapp:${CIRCLE_SHA1} .
 
-      # - run:
-      #     name: Authenticate with Docker Hub
-      #     command: |
-      #       echo "$DOCKERHUB_PASS" | docker login --username $DOCKERHUB_USERNAME --password-stdin
+      - run:
+          name: Authenticate with Docker Hub
+          command: |
+            echo "$DOCKERHUB_PASS" | docker login --username $DOCKERHUB_USERNAME --password-stdin
 
-      # - run:
-      #     name: Push Docker Image to Docker Hub
-      #     command: |
-      #       docker push $DOCKERHUB_USERNAME/myapp:${CIRCLE_SHA1}
-      #test
+      - run:
+          name: Push Docker Image to Docker Hub
+          command: |
+            docker push $DOCKERHUB_USERNAME/myapp:${CIRCLE_SHA1}
+      
 
 workflows:
   version: 2
