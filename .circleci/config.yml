@@ -15,7 +15,7 @@ jobs:
           command: pip install -r requirements.txt
       - run:
           name : testing
-          command: pytest test_spare_recommender.py
+          command: pytest test_sparse_recommender.py
           
       # - run:
       #     name: Build Docker Image
